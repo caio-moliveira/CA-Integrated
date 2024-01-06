@@ -133,6 +133,9 @@ Valid combinations that meet all constraints are stored in possible_teams, each 
 A Constraint Satisfaction Problem (CSP) involves finding a solution that satisfies a number of constraints or conditions. It is widely used in fields like artificial intelligence for scheduling, assigning, and planning problems. CSPs typically involve variables, domains for each variable, and constraints that describe allowable combinations of values. The goal is to assign values to all variables in a way that doesn't violate any constraints (Russell & Norvig, 2010). This framework is particularly effective in scenarios like employee scheduling, where multiple conditions must be met simultaneously.
 
 A Constraint Satisfaction Problem (CSP) is typically defined by three fundamental components: (Wikipedia Contributors, 2019)
+
+![image](https://github.com/caio-moliveira/CA-Integrated/assets/150807759/8224a6b7-a9a6-49ee-8103-6740703315cc)
+
  
 A more efficient method uses the backtracking paradigm (BT) that is the most common algorithm for performing systematic search. Backtracking incrementally attempts to extend a partial solution toward a complete solution, by repeatedly choosing a value for another variable.
 
@@ -165,6 +168,10 @@ Scenario 1:
 
 
 The following graphs were taken from the code itself:
+
+![image](https://github.com/caio-moliveira/CA-Integrated/assets/150807759/0cc8e7a3-858c-4e9a-ba9b-eb5eab785ff2)
+
+
   
 Result: Two possible teams have been found.
 - Ciara, Jane, Jim, Juan
@@ -172,12 +179,11 @@ Result: Two possible teams have been found.
 
 Scenario 2:
 1. There must be 2 Python Programmers, 3 AI Engineers, 1 Web Designer, 1 Database Admin, and 1 Systems Engineer;
-
 2. This time, Juan and Ciara have to be on the list of hired people with their respective abilities.
-   
 3. The company can hire max of 4 people for the rest of the roles.
 
-  
+![image](https://github.com/caio-moliveira/CA-Integrated/assets/150807759/682c568e-af8f-4e10-8733-5b3f8672ae43)
+
 
 
 Result: nine possible teams have been found.
@@ -196,13 +202,18 @@ Objective:
 The objective of a CSP is to find an assignment of values to variables that satisfies all constraints.
 
 Solution:
-- The CSP algorithm would try different combinations of the candidates, assigning them to various roles while ensuring all constraints are met.
-- A solution to the CSP is an assignment of values to all variables that does not violate any constraints. Depending on the problem, there might be none, one, or many possible solutions.
-- It uses backtracking to explore all possible configurations going backwards and checking if any constraint is violated.
-- Scenario 1 found only two solutions. The reason is that only 3 people were hired to fulfill 6 roles, making the constraints harder to satisfy.
-- Scenario 2 found close to ten solutions. The reason is that Juan is now Ciara's partner, and both must be part of the hired team. Now, the constraints are much easier to satisfy, as there are 5 abilities left to be distributed among 4 people.
+The CSP algorithm would try different combinations of the candidates, assigning them to various roles while ensuring all constraints are met.
 
-Conclusion
+A solution to the CSP is an assignment of values to all variables that does not violate any constraints. Depending on the problem, there might be none, one, or many possible solutions.
+
+It uses backtracking to explore all possible configurations going backwards and checking if any constraint is violated.
+
+Scenario 1 found only two solutions. The reason is that only 3 people were hired to fulfill 6 roles, making the constraints harder to satisfy.
+
+Scenario 2 found close to ten solutions. The reason is that Juan is now Ciara's partner, and both must be part of the hired team. Now, the constraints are much easier to satisfy, as there are 5 abilities left to be distributed among 4 people.
+
+### Conclusion
+
 Most algorithms for solving CSPs search systematically through the possible assignments of values to variables. These algorithms are going to find a solution, if one exists, or to prove that the problem is unsatisfiable. (Brailsford, Potts & Smith, 1999)
 CSPs are a powerful abstract model for representing and solving many real-world problems in various fields such as scheduling, planning, resource allocation, configuration, and spatial reasoning. They offer a structured way to break down complex problems into manageable components (variables, domains, and constraints) and apply systematic methods to find solutions.
 	
@@ -225,12 +236,12 @@ The assumption of divisibility, which limits decision variables to noninteger va
 
 The ILP algorithm finds every feasible unique solution by use of a unique twist on iterative integer linear programming: solution blocking. It uses integer constraints (binary variables for assignments and hiring) along with linear programming techniques for optimization (minimizing the number of hired people), and iteratively adds constraints to fully explore the solution space. When addressing issues involving resource allocation and operations research, where specific goals must be optimized within predetermined parameters, this kind of problem-solving is most prevalent.
 
-How ILP Works
+### How ILP Works
 
 Variable Definition: A decision point is represented by each variable. For instance, a variable may indicate whether a person is assigned to a specific job in a resource allocation problem (1 for yes, 0 for no).
 Constraints: Setting requirements that all solutions must adhere to is necessary for ILP. These can ensure that resources aren't over-allocated, and that only feasible solutions are considered. Typical restrictions include making sure the right number of roles are filled or that no one is put in a role that isn't a good fit for them based on their abilities.
 Objective Function: What you want to optimize is the objective function, which might be anything like maximizing efficiency or lowering expenses. Sometimes, the goal could be as simple as identifying any feasible solution that satisfies the constraints.
-Advantages of ILP
+#### Advantages of ILP
 • Optimality: ILP can provide the best possible solution according to the objective function and within the constraints.
 • Flexibility: It can deal with a broad range of problem types, including complex and large-scale problems.
 • Universality: ILP models are broadly applicable in numerous fields such as scheduling, resource allocation, budgeting, etc. (Hillier & Lieberman, 2010)
@@ -238,7 +249,7 @@ Conclusion
 The inconsistency of Integer Linear Programming (ILP) algorithms in solving integer problems represents a notable drawback. While theoretical demonstrations assert these algorithms' convergence within a finite number of iterations, practical implementation on computers can yield a different experience. As such, it's important to consider these computational limitations and the potential for inconsistency when examining and applying ILP algorithms. (Taha, 2017).
 
 
-Code Explanation
+### Code Explanation
 
 Uses the LpProblem with an objective to minimize (LpMinimize) the number of people on each team ensuring all constraints are filled.
 X stores a binary value to indicate the which person is assigned to the roles accordingly.
