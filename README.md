@@ -1,5 +1,4 @@
-# CA-Integrated
-CA - Artificial Intelligence and Data Visualization
+# CA - Artificial Intelligence and Data Visualization
  
 
 
@@ -77,27 +76,25 @@ By submitting this assessment, I confirm that I have read the CCT policy on Acad
 
 
 
-
-Contents
-Artificial Intelligence	4
-Data Visualization & Communication	11
-References	15
-
  
-Artificial Intelligence
+## Artificial Intelligence
 
-Using any CSP (Constraint Satisfaction Problem) framework (using variables, value domains, and constraints), discover if the above problems can be solved and if so detail who would be in hired
-Scenario 1: 
+#### Using any CSP (Constraint Satisfaction Problem) framework (using variables, value domains, and constraints), discover if the above problems can be solved and if so detail who would be hired
+#### Scenario 1: 
 
 Suppose Ciara knows Python, and only has funds to hire three more people.
+
 Variables: The variables are the people (Peter, Juan, Jim, Jane, Mary, Bruce, Anita). Each person represents a variable that needs to be assigned a role based on their abilities.
+
 Value Domains: The domain of each variable (person) is their set of abilities. For example, the domain for Peter is {"Python", "AI"}.
-Constraints:
-Each person can be assigned only to roles matching their abilities.
+
+Constraints: Each person can be assigned only to roles matching their abilities.
+
 The total number of people hired should be three (excluding Ciara).
+
 The required roles in the company ('constraints') must all be filled. This includes 1 Python Programmer, 2 AI Engineers, 1 Web Designer, 1 Database Admin, and 1 Systems Engineer.
 
-Scenario 2:
+#### Scenario 2:
 
 Suppose Ciara and Juan become partners, with the additional funds they can now employ four more people but must employ another AI Engineer, so they need 2 Python Programmers, 3 AI Engineers, 1 Web Designer, 1 Database Admin, and 1 Systems Engineer.
 Variables and Value Domains remains the same as scenario 1.
@@ -107,18 +104,23 @@ The total number of people hired must be up to four (excluding Ciara and Juan)
 The required roles in the company constraint must all be filled. This includes 2 Python Programmer, 3 AI Engineers, 1 Web Designer, 1 Database Admin, and 1 Systems Engineer.
 
 
-Code Explanation
+#### Code Explanation
 
 variables_domain:  A string dictionary where the skills are assigned to each person accordingly. 
+
 constraint: A dictionary representing the required skills or roles for the project. Each skill has a corresponding number indicating how many people with that skill are needed.
+
 pre_selected: A set of individuals who are pre-selected for the team due to their specific skills or other constraints. For instance, in scenario 1, Ciara is selected for her Python skill. For instance, in scenario 2, Ciara and Juan are selected for their skills. It adjusts the variables_domain and `constraint` based on the skills of these pre-selected individuals.
+
 Removing pre-selected individuals: A for loop to remove the pre-selected individuals from the variables_domain and adjusts the constraint accordingly to reflect their contribution to the required skills.
 
 meets_requirements function: A function that checks if a particular combination of people meets the required skills. It tallies the skills of the combination and compares this against the constraint to determine if it's a valid team setup.
-Process:
-1. Initialize a count for each required skill.
-2. Tally the skills for each individual in the combination.
-3. Compare the tally against the requirements in constraint.
+
+##### Process:
+
+* 1. Initialize a count for each required skill.
+* 2. Tally the skills for each individual in the combination.
+* 3. Compare the tally against the requirements in constraint.
 
 Generating Possible Teams: The possible_teams generates all combinations (for scenario 1) of 1 to 4 people from the remaining candidates and (for scenario 2) of 1 to 6 people from the remaining candidates (not including pre-selected ones) and checks each combination to see if it meets the required skills.
 Valid combinations that meet all constraints are stored in possible_teams, each including the pre-selected individuals then stores each team combination that successfully meet all the constraints.
