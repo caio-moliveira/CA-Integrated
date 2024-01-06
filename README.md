@@ -106,30 +106,32 @@ The required roles in the company constraint must all be filled. This includes 2
 
 #### Code Explanation
 
-variables_domain:  A string dictionary where the skills are assigned to each person accordingly. 
+- `variables_domain`:  A string dictionary where the skills are assigned to each person accordingly. 
 
-constraint: A dictionary representing the required skills or roles for the project. Each skill has a corresponding number indicating how many people with that skill are needed.
+- `constraint`: A dictionary representing the required skills or roles for the project. Each skill has a corresponding number indicating how many people with that skill are needed.
 
-pre_selected: A set of individuals who are pre-selected for the team due to their specific skills or other constraints. For instance, in scenario 1, Ciara is selected for her Python skill. For instance, in scenario 2, Ciara and Juan are selected for their skills. It adjusts the variables_domain and `constraint` based on the skills of these pre-selected individuals.
+- `pre_selected`: A set of individuals who are pre-selected for the team due to their specific skills or other constraints. For instance, in scenario 1, Ciara is selected for her Python skill. For instance, in scenario 2, Ciara and Juan are selected for their skills. It adjusts the variables_domain and `constraint` based on the skills of these pre-selected individuals.
 
 Removing pre-selected individuals: A for loop to remove the pre-selected individuals from the variables_domain and adjusts the constraint accordingly to reflect their contribution to the required skills.
 
-meets_requirements function: A function that checks if a particular combination of people meets the required skills. It tallies the skills of the combination and compares this against the constraint to determine if it's a valid team setup.
+- `meets_requirements`: A function that checks if a particular combination of people meets the required skills. It tallies the skills of the combination and compares this against the constraint to determine if it's a valid team setup.
 
 ##### Process:
 
-* 1. Initialize a count for each required skill.
-* 2. Tally the skills for each individual in the combination.
-* 3. Compare the tally against the requirements in constraint.
+* Initialize a count for each required skill.
+* Tally the skills for each individual in the combination.
+* Compare the tally against the requirements in constraint.
 
 Generating Possible Teams: The possible_teams generates all combinations (for scenario 1) of 1 to 4 people from the remaining candidates and (for scenario 2) of 1 to 6 people from the remaining candidates (not including pre-selected ones) and checks each combination to see if it meets the required skills.
+
 Valid combinations that meet all constraints are stored in possible_teams, each including the pre-selected individuals then stores each team combination that successfully meet all the constraints.
 
-Discuss in detail how using Constraint Satisfaction finds an answer or finds no solution to the problems in Tasks for Artificial Intelligence part 1. How does this differ from standard algorithmic solutions?
+### Discuss in detail how using Constraint Satisfaction finds an answer or finds no solution to the problems in Tasks for Artificial Intelligence part 1. How does this differ from standard algorithmic solutions?
 
-Constraint Satisfaction Problem (CSP)
+#### Constraint Satisfaction Problem (CSP)
 
 A Constraint Satisfaction Problem (CSP) involves finding a solution that satisfies a number of constraints or conditions. It is widely used in fields like artificial intelligence for scheduling, assigning, and planning problems. CSPs typically involve variables, domains for each variable, and constraints that describe allowable combinations of values. The goal is to assign values to all variables in a way that doesn't violate any constraints (Russell & Norvig, 2010). This framework is particularly effective in scenarios like employee scheduling, where multiple conditions must be met simultaneously.
+
 A Constraint Satisfaction Problem (CSP) is typically defined by three fundamental components: (Wikipedia Contributors, 2019)
  
 A more efficient method uses the backtracking paradigm (BT) that is the most common algorithm for performing systematic search. Backtracking incrementally attempts to extend a partial solution toward a complete solution, by repeatedly choosing a value for another variable.
