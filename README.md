@@ -357,10 +357,10 @@ Begins the Tkinter main loop to display the window.
 
 `init_ui_elements` Uses customtkinter (ctk) widgets, the `init_ui_elements` function in the TeamExplorerApp class configures the user interface elements, resulting of a dynamic and interactive application for team constraints exploration.
 
-•	`skill_constraint_sliders`: A slider is created for each `skill_constraints`, letting the user enter the number needed for each skill.
-•	`total_people_slider`: A slider that allows the user to select how many workers in total they wish to hire.
-•	`pre_selected_checks`: Individual checkboxes in `employee_skills`. Users have the option to pre-select particular members of the team.
-•	`output_area`: A text box where, upon calculations, the potential teams will show up.
+- `skill_constraint_sliders`: A slider is created for each `skill_constraints`, letting the user enter the number needed for each skill.
+- `total_people_slider`: A slider that allows the user to select how many workers in total they wish to hire.
+- `pre_selected_checks`: Individual checkboxes in `employee_skills`. Users have the option to pre-select particular members of the team.
+- `output_area`: A text box where, upon calculations, the potential teams will show up.
 
 Because each interactive element—such as sliders and checkboxes—is connected to the `update_plot` function, any input from the user will instantly update and recalculate the teams and visualizations that are presented. With no more input from the user needed, this method produces a responsive user experience that updates in real-time.
 
