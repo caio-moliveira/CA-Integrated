@@ -310,69 +310,73 @@ This graph shows popular or ideal team sizes and offers insights into the most t
 
 #### Code introduction
 
-Ipywidgets [14]: Library used to create the interactive visualization was, 
-plotly.graph_objs[12]:  for creating interactive plots (go.Bar and go.Histogram)
+Ipywidgets [14]: Library used to create the interactive visualization.
+
+plotly.graph_objs[12]:  for creating interactive plots (go.Bar and go.Histogram).
 
 I've decided to start the project's visualization component with the same values in the variables_domain, but I've modified the variable names to reduce the possibility of combining scripts. I've also used the same strategy when it comes to constraint.
+
 `pre_selected` is used in the script without an argument since the dynamic visualization will choose which team members are pre-selected.
+
 `meets_requirements`:  A function that checks if a particular combination of people meets the required skills. It tallies the skills of the combination and compares this against the skill_constraints to determine if it's a valid team setup.
-Code Explanation
+
+#### Code Explanation
+
 `__init__` : initializes a constructor for the pre-selected individuals calling the `init_ui_elements` initializing the interface elements.
+
 he `init_ui_elements`: Using `skills_contraints` to create sliders. Also, create a slider for the total of people to be hired, and checkbox for the pre-selected individuals.
+
 `Handle_preselected` uses `pre_selected` set to refresh the visualization in update_plot which is triggered every time any attribute on sliders and checkbox is changed.
+
 `render_output` printing a new list of possible solution after clearing the previous output. After doing it calls render_visualization in order to update the plots.
-
-
-
-
-
-
-
-
 
 
 
 ### Create GUI(s) to allow a user to explore alternate constraint scenarios
 
-Code Introduction
-Customtkinter [3] used in Tkinter [13] for creating modern-looking GUI applications using tools such CTkSlider and CTkLabel
+#### Code Introduction
+
+Customtkinter [3] used in Tkinter [13] for creating modern-looking GUI applications using tools such CTkSlider and CTkLabel.
+
 FigureCanvasTkAgg powerful tool from matplotlib.backends.backend_tlagg [10 ] to embed the library into applications in Tkinter providing figures to be rendered within TKinter windows.
+
 I've made the decision to start the project's visualization component with the same values in the variables_domain, but I am using for both problems so will run only once.
+
 pre_selected is used in the script without an argument since the dynamic visualization will choose which team members are pre-selected.
+
 meets_requirements function: A function that checks if a particular combination of people meets the required skills. It tallies the skills of the combination and compares this against the skill_constraints to determine if it's a valid team setup.
-Code Explanation
-`__init__` :
-Initializes the application window using customtkinter (ctk), sets the theme to dark, titles the window "Team Constraints Explorer", and sets its geometry.
+
+
+#### Code Explanation
+
+`__init__`: Initializes the application window using customtkinter (ctk), sets the theme to dark, titles the window "Team Constraints Explorer", and sets its geometry.
+
 Calls the `init_ui_elements` method to set up the user interface components.
+
 Begins the Tkinter main loop to display the window.
+
 `init_ui_elements` Uses customtkinter (ctk) widgets, the `init_ui_elements` function in the TeamExplorerApp class configures the user interface elements, resulting of a dynamic and interactive application for team constraints exploration.
+
 •	`skill_constraint_sliders`: A slider is created for each `skill_constraints`, letting the user enter the number needed for each skill.
 •	`total_people_slider`: A slider that allows the user to select how many workers in total they wish to hire.
 •	`pre_selected_checks`: Individual checkboxes in `employee_skills`. Users have the option to pre-select particular members of the team.
 •	`output_area`: A text box where, upon calculations, the potential teams will show up.
+
 Because each interactive element—such as sliders and checkboxes—is connected to the `update_plot` function, any input from the user will instantly update and recalculate the teams and visualizations that are presented. With no more input from the user needed, this method produces a responsive user experience that updates in real-time.
+
 `update_plot` Collects the most recent values from each checkbox and slider.
+
 Use combination logic and the `meets_requirements` function to determine possible teams based on the existing requirements.
+
 Adds the most recent possible team calculations to the output area.
+
 Refresh any visualizations with the latest team data by using `update_visualization`.
 
 `update_visualization` Creates or modifies a different top-level window just for visualizations.
+
 Creates two subplots: one that displays how many employees work in teams and another that displays the range of team sizes.
+
 Plots are created using matplotlib and shown in the Tkinter window.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
