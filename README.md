@@ -167,27 +167,30 @@ Scenario 1:
 The following graphs were taken from the code itself:
   
 Result: Two possible teams have been found.
-Ciara, Jane, Jim, Juan
-Anita, Ciara, Jane, Jim
+- Ciara, Jane, Jim, Juan
+- Anita, Ciara, Jane, Jim
 
 Scenario 2:
 1. There must be 2 Python Programmers, 3 AI Engineers, 1 Web Designer, 1 Database Admin, and 1 Systems Engineer;
+
 2. This time, Juan and Ciara have to be on the list of hired people with their respective abilities.
+   
 3. The company can hire max of 4 people for the rest of the roles.
 
   
 
 
 Result: nine possible teams have been found.
-Anita, Ciara, Jane, Jim, Juan
-Ciara, Jane, Jim, Juan, Peter
-Anita, Ciara, Jane, Jim, Juan, Mary
-Anita, Ciara, Jane, Juan, Mary, Peter
-Ciara, Jane, Jim, Juan, Mary, Peter
-Anita, Ciara, Jane, Jim, Juan, Peter
-Anita, Bruce, Ciara, Jane, Jim, Juan
-Anita, Bruce, Ciara, Jane, Juan, Peter
-Bruce, Ciara, Jane, Jim, Juan, Peter
+
+- Anita, Ciara, Jane, Jim, Juan
+- Ciara, Jane, Jim, Juan, Peter
+- Anita, Ciara, Jane, Jim, Juan, Mary
+- Anita, Ciara, Jane, Juan, Mary, Peter
+- Ciara, Jane, Jim, Juan, Mary, Peter
+- Anita, Ciara, Jane, Jim, Juan, Peter
+- Anita, Bruce, Ciara, Jane, Jim, Juan
+- Anita, Bruce, Ciara, Jane, Juan, Peter
+- Bruce, Ciara, Jane, Jim, Juan, Peter
 
 Objective:
 The objective of a CSP is to find an assignment of values to variables that satisfies all constraints.
